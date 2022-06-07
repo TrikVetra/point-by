@@ -13,10 +13,10 @@ const ClickHandler = (e,setFieldValue, values) => {
     setFieldValue("points", newValue)
 }
 
-const FieldForm = () => (
+const FieldForm = (props) => (
     <div>
       <Formik
-        initialValues={{ points: '8'}}
+        initialValues={{ points: props.state.UsedPoints}}
         validate={values => {
             const errors = {};
             if (values.points && !/^\d+$/i.test(values.points)) { //!!! Валидация не работает т.к. онклик не разрешает вводиться этим символам.
