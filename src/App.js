@@ -1,12 +1,12 @@
 
 import './App.css';
 import FieldForm from './UI/FieldForm';
+import CalculatorFields from './UI/CalculatorFields';
 
 function App(props) {
-console.log (props)
   return (
     <div className="App">
-      <FieldForm state = {props.state.calc}/>
+      <CalculatorFields state = {props.state.calc}/>
     </div>
   );
 }
