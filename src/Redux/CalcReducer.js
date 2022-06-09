@@ -15,15 +15,15 @@ export const calcSlice = createSlice({
     ]   
   },
   reducers: {
-    increment: state => {
+    incremented: state => {
       // Redux Toolkit allows us to write "mutating" logic in reducers. It
       // doesn't actually mutate the state because it uses the Immer library,
       // which detects changes to a "draft state" and produces a brand new
       // immutable state based off those changes
-      state.value += 1
+      state.UsedPoints += 1
     },
-    decrement: state => {
-      state.value -= 1
+    decremented: state => {
+      state.UsedPoints -= 1
     },
     incrementByAmount: (state, action) => {
       state.value += action.payload
@@ -31,7 +31,8 @@ export const calcSlice = createSlice({
   }
 })
 
+
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = calcSlice.actions
+export const { incremented, decremented, incrementByAmount } = calcSlice.actions
 
 export default calcSlice.reducer

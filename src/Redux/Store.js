@@ -1,15 +1,14 @@
-import { combineReducers, createStore } from "redux"
-
 import calcSlice from './CalcReducer'
 
 import { configureStore } from '@reduxjs/toolkit'
 
-export default configureStore({
+const store = configureStore({
   reducer: {
       calc: calcSlice,
   }
 })
 
+export default store
 
 // let redusers = combineReducers({
 //     calculator: CalcReducer,

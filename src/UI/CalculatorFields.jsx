@@ -4,7 +4,7 @@ const CalculatorFields = (props) => {
     console.log(props.state)
 
     let calculatorField = props.state.Сhars.map(
-        field => <FieldForm name={field.name} points={field.points} />
+        field => <FieldForm name = {field.name} points = {field.points} state = {props.state}/>
     )
 
     // let calculatorField = props.state.Сhars.map (
