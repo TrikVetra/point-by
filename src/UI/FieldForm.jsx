@@ -1,22 +1,22 @@
-// import { useFormik, replace } from "formik";
-
-// import React from "react";
 
 import { Formik } from "formik";
-
 import React from "react";
+import style from "./FieldForm.module.css"
 
 const ClickHandler = (e, setFieldValue, values) => {
   let newValue = Number(values.points)
-  if (e.target.name === 'plus' && values.points < 99) newValue++
-  else if (e.target.name === 'minus' && values.points > 0) newValue--
+  if (e.target.name === 'plus' && values.points < 15) {
+    newValue++
+    
+  }
+  else if (e.target.name === 'minus' && values.points > 8) newValue--
   setFieldValue("points", newValue)
 }
 
 const FieldForm = (props) => {
   return (
-    <div>
-      <div>{props.name}</div>
+    <div className={style.fieldWrapper}>      
+      <div className={style.fieldName}>{props.name}</div>
       <Formik
         initialValues={{ points: props.points }}
         validate={values => {

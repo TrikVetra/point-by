@@ -1,0 +1,7 @@
+.fieldWrapper {
+    display: flex;
+}
+
+.fieldName{
+    width: 120px;
+}

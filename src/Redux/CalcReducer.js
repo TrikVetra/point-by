@@ -4,14 +4,14 @@ export const calcSlice = createSlice({
   name: 'counter',
   initialState: {
     MaxPoints: 27,
-    UsedPoints: 8,
+    UsedPoints: 0,
     Сhars: [
-        {name: 'Сила', points: 0},
-        {name: 'Ловкость', points: 0},
-        {name: 'Выносливость', points: 0},
-        {name: 'Интеллект', points: 0},
-        {name: 'Мудрость', points: 0},
-        {name: 'Харизма', points: 0},
+        {name: 'Сила', points: 8},
+        {name: 'Ловкость', points: 8},
+        {name: 'Выносливость', points: 8},
+        {name: 'Интеллект', points: 8},
+        {name: 'Мудрость', points: 8},
+        {name: 'Харизма', points: 8},
     ]   
   },
   reducers: {
