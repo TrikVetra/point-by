@@ -1,5 +1,13 @@
 .App {
   text-align: left;
+  min-height: 100%;
+  max-width: 240px;
+	box-sizing: content-box;
+  align-items: center;
+  padding: 0px 15px;
+  margin: 30vh auto;
+  font-family: 'Forum';
+  font-size: 20px;
 }
 
 .App-logo {

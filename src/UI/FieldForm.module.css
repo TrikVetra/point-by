@@ -1,11 +1,25 @@
 .fieldWrapper {
     display: flex;
+	flex-direction: row;
+		
 }
 
 .fieldName{
-    width: 120px;
+    width: 145px;
 }
 
 .fieldPoints{
     width: 20px;
 }
+
+.title{
+    padding-bottom: 15px;
+}
+
+.button{
+    background-color: #B6CADE;
+    max-width: 22px;
+    min-width: 22px;
+    border-radius: 50%;
+}
+

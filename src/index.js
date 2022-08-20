@@ -16,6 +16,7 @@ let renderEntireTree = (state) => (
   root.render(
     <Provider store={store}>
         <App tab="home" state={state}/>
+        
     </Provider>
   
   )

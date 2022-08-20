@@ -1,30 +1,32 @@
 
 import { Formik } from "formik";
 import React from "react";
-import store from "../Redux/Store";
+//import store from "../Redux/Store";
 import style from "./FieldForm.module.css"
-import { decremented, incremented } from "../Redux/CalcReducer";
-
-
+import { decrement, increment } from "../Redux/CalcReducer";
+import { useDispatch } from 'react-redux'
 
 const FieldForm = (props) => {
+  const dispatch = useDispatch()
 
   const ClickHandler = (e, setFieldValue, values) => {
     let newValue = Number(values.points)
     if (e.target.name === 'plus' && values.points < 15 && props.state.UsedPoints < props.state.MaxPoints) {
       newValue++
-      store.dispatch(incremented())
+      //store.dispatch(increment())
+      dispatch(increment(props.name))
     }
     else if ( e.target.name === 'minus' && values.points > 8 && props.state.UsedPoints > 0 ) {
       newValue--
-      store.dispatch(decremented())
+      //store.dispatch(decrement())
+      dispatch(decrement(props.name))
     }
     setFieldValue("points", newValue)
   }
 
   return (
     <div className={style.fieldWrapper}>      
-      <div className={style.fieldName}>{props.name}</div>
+      <div className={style.fieldName}>{props.label}</div>
       <Formik
         initialValues={{ points: props.points }}
         validate={values => {
@@ -45,10 +47,11 @@ const FieldForm = (props) => {
         }) => (
           <form onSubmit={handleSubmit}>
             <div>
+            <button className={style.button} name="minus" type="button" onClick={e => ClickHandler(e, setFieldValue, values)}><b>-</b></button>
               <input
                 className={style.fieldPoints}
                 type="points"
-                name="points"
+                name={props.name}
                 // onChange={
                 //   e => {
                 //     e.preventDefault();
@@ -62,8 +65,8 @@ const FieldForm = (props) => {
                 onBlur={handleBlur}
                 value={values.points}
               />
-              <button name="plus" type="button" onClick={e => ClickHandler(e, setFieldValue, values)}>+</button>
-              <button name="minus" type="button" onClick={e => ClickHandler(e, setFieldValue, values)}>-</button>
+              <button className={style.button} name="plus" type="button" onClick={e => ClickHandler(e, setFieldValue, values)}><b>+</b></button>
+              
             </div>
             <div>
               {errors.points}

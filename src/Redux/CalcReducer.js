@@ -5,34 +5,34 @@ export const calcSlice = createSlice({
   initialState: {
     MaxPoints: 27,
     UsedPoints: 0,
-    Сhars: [
-        {name: 'Сила', points: 8},
-        {name: 'Ловкость', points: 8},
-        {name: 'Выносливость', points: 8},
-        {name: 'Интеллект', points: 8},
-        {name: 'Мудрость', points: 8},
-        {name: 'Харизма', points: 8},
+    Stats: [
+        {label: 'Сила', name: 'Str', points: 8},
+        {label: 'Ловкость', name: 'Dex', points: 8},
+        {label: 'Выносливость', name: 'Sta', points: 8},
+        {label: 'Интеллект', name: 'Int', points: 8},
+        {label: 'Мудрость', name: 'Wis', points: 8},
+        {label: 'Харизма', name: 'Cha', points: 8},
     ]   
   },
   reducers: {
-    incremented: state => {
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
+    increment: (state, payload) => {
       state.UsedPoints += 1
+      const element = state.Stats.find(el => el.name === payload)
+      console.log(element)
+      //state.Stats[0].points += 1
     },
-    decremented: state => {
+    decrement: (state, payload) => {
       state.UsedPoints -= 1
+      state.Stats.find(el => el.name === payload)
+      //state.Stats[0].points += 1
     },
-    incrementByAmount: (state, action) => {
-      state.value += action.payload
-    }
   }
+
+
 })
 
 
 // Action creators are generated for each case reducer function
-export const { incremented, decremented, incrementByAmount } = calcSlice.actions
+export const { increment, decrement } = calcSlice.actions
 
-export default calcSlice.reducer
+export default calcSlice
