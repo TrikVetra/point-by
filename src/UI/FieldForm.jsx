@@ -10,13 +10,14 @@ const FieldForm = (props) => {
   const dispatch = useDispatch()
 
   const ClickHandler = (e, setFieldValue, values) => {
+    
     let newValue = Number(values.points)
-    if (e.target.name === 'plus' && values.points < 15 && props.state.UsedPoints < props.state.MaxPoints) {
+    if (e.currentTarget.name === 'plus' && values.points < 15 && props.state.UsedPoints < props.state.MaxPoints) {
       newValue++
       //store.dispatch(increment())
       dispatch(increment(props.name))
     }
-    else if ( e.target.name === 'minus' && values.points > 8 && props.state.UsedPoints > 0 ) {
+    else if (e.currentTarget.name === 'minus' && values.points > 8 && props.state.UsedPoints > 0) {
       newValue--
       //store.dispatch(decrement())
       dispatch(decrement(props.name))
@@ -25,7 +26,7 @@ const FieldForm = (props) => {
   }
 
   return (
-    <div className={style.fieldWrapper}>      
+    <div className={style.fieldWrapper}>
       <div className={style.fieldName}>{props.label}</div>
       <Formik
         initialValues={{ points: props.points }}
@@ -47,7 +48,7 @@ const FieldForm = (props) => {
         }) => (
           <form onSubmit={handleSubmit}>
             <div>
-            <button className={style.button} name="minus" type="button" onClick={e => ClickHandler(e, setFieldValue, values)}><b>-</b></button>
+              <button className={style.button} name="minus" type="button" onClick={e => ClickHandler(e, setFieldValue, values)}><b>&lt;</b></button>
               <input
                 className={style.fieldPoints}
                 type="points"
@@ -65,8 +66,8 @@ const FieldForm = (props) => {
                 onBlur={handleBlur}
                 value={values.points}
               />
-              <button className={style.button} name="plus" type="button" onClick={e => ClickHandler(e, setFieldValue, values)}><b>+</b></button>
-              
+              <button className={style.button} name="plus" type="button" onClick={e => ClickHandler(e, setFieldValue, values)}><b>&gt;</b></button>
+
             </div>
             <div>
               {errors.points}

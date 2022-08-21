@@ -17,20 +17,13 @@ export const calcSlice = createSlice({
   reducers: {
     increment: (state, payload) => {
       state.UsedPoints += 1
-      const element = state.Stats.find(el => el.name === payload)
-      console.log(element)
-      //state.Stats[0].points += 1
     },
     decrement: (state, payload) => {
       state.UsedPoints -= 1
-      state.Stats.find(el => el.name === payload)
-      //state.Stats[0].points += 1
     },
   }
 
-
 })
-
 
 // Action creators are generated for each case reducer function
 export const { increment, decrement } = calcSlice.actions
