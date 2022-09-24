@@ -22,18 +22,6 @@ let renderEntireTree = (state) => (
   )
 )
 
-// let renderEntireTree = (state) => (
-//   ReactDOM.render(
-//     <React.StrictMode>
-//       <Provider store={store}>
-//       <App />  
-//       </Provider>
-//     </React.StrictMode>,
-    
-//     document.getElementById('root')
-//   )
-// )
-
 renderEntireTree (store.getState());
 
 store.subscribe(() => {

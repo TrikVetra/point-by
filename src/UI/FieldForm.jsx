@@ -14,12 +14,10 @@ const FieldForm = (props) => {
     let newValue = Number(values.points)
     if (e.currentTarget.name === 'plus' && values.points < 15 && props.state.UsedPoints < props.state.MaxPoints) {
       newValue++
-      //store.dispatch(increment())
       dispatch(increment(props.name))
     }
     else if (e.currentTarget.name === 'minus' && values.points > 8 && props.state.UsedPoints > 0) {
       newValue--
-      //store.dispatch(decrement())
       dispatch(decrement(props.name))
     }
     setFieldValue("points", newValue)
@@ -32,7 +30,7 @@ const FieldForm = (props) => {
         initialValues={{ points: props.points }}
         validate={values => {
           const errors = {};
-          if (values.points && !/^\d+$/i.test(values.points)) { //!!! Валидация не работает т.к. онклик не разрешает вводиться этим символам.
+          if (values.points && !/^\d+$/i.test(values.points)) { //Валидация не работает т.к. онклик не разрешает вводиться этим символам.
             errors.points = 'Это не число';
           }
           return errors;

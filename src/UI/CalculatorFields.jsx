@@ -7,10 +7,6 @@ const CalculatorFields = (props) => {
         field => <FieldForm key = {field.name} label = {field.label} points = {field.points} name = {field.name} state = {props.state}/>
     )
 
-    // let calculatorField = props.state.Stats.map (
-    //     field => <FieldForm name = {field.name} points = {field.points}/>
-    // )
-
     return (
         <div>
             <div className={style.title}>
@@ -20,7 +16,6 @@ const CalculatorFields = (props) => {
                 {calculatorField}            
             </div>
         </div>
-        
     )
 }
 
